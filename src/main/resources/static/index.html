@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Billettsalg</title>
+    <script src="script.js"></script>
+
+</head>
+<body>
+<h1>Bestilling av kinobiletter</h1>
+<p>
+
+    <label for="film">Velg film her</label>
+    <select id="film">
+        <option style="display: none" value="">Velg film her</option>
+        <option>Eragon</option>
+        <option>Harry Potter and The Philosopher´s Stone</option>
+        <option>The Goonies</option>
+        <option>The last Mimzy</option>
+        <option>The Secret of Moonacre</option>
+        <option>The Great Wall</option>
+    </select>
+    <span id="feilmeldingfilm"> </span>
+</p>
+
+<p>
+    <label for="antall"> Antall</label>
+    <input type="text" id="antall" size="2">
+    <span id="feilmeldingantall"></span>
+
+</p>
+
+<table>
+    <tr>
+        <td>
+            <label for="forNavn">Fornavn</label>
+        </td>
+        <td>
+            <input type="text" id="forNavn">
+            <span id="feilmeldingfornavn"></span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="etterNavn">Etternavn</label>
+        </td>
+        <td>
+            <input type="text" id="etterNavn">
+            <span id="feilmeldingetternavn"></span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="telefonNr">Telefonnr</label>
+        </td>
+        <td>
+            <input type="text" id="telefonNr">
+            <span id="feilmeldingtelefonnr"></span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label for="email">Epost</label>
+        </td>
+        <td>
+            <input type="email" id="email">
+            <span id="feilmeldingemail"></span>
+        </td>
+    </tr>
+</table>
+<br>
+<button onclick="kjopBillett()">Kjøp billett</button>
+
+<h2>Alle billetter</h2>
+<div id="ordreListe"></div>
+
+<button onclick="slettBilettene()">Slett alle billettene</button>
+</body>
+</html>
