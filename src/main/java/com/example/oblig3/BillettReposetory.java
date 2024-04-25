@@ -13,7 +13,7 @@ public class BillettReposetory {
     private JdbcTemplate db;
 
     public void lagreBillett(Billett kjopBillett) {
-        String sql = "INSERT INTO Billett (film, antall, forNavn, etterNavn, telefonNr, epost) VALUES(?,?,?,?,?,?";
+        String sql = "INSERT INTO Billett (film, antall, forNavn, etterNavn, telefonNr, epost) VALUES(?,?,?,?,?,?)";
         db.update(sql, kjopBillett.getFilm(), kjopBillett.getAntall(), kjopBillett.getForNavn(), kjopBillett.getEtterNavn(),
                 kjopBillett.getTelefonNr(), kjopBillett.getEpost());
     }

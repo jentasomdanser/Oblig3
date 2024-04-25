@@ -21,7 +21,7 @@ function valederingavFelt() {
     innFornavn = document.getElementById("forNavn").value;
     innEtternavn = document.getElementById("etterNavn").value;
     innTelefonnr = document.getElementById("telefonNr").value;
-    innepost = document.getElementById("email").value;
+    innepost = document.getElementById("epost").value;
 
 // lager en varslings melding at et eller flere av feltene er tomme
     if (innFilm === "") {
@@ -48,7 +48,7 @@ function valederingavFelt() {
         innFornavn = "";
         document.getElementById("feilmeldingfornavn").value = "";
     } else {
-        innFornavn = document.getElementById("feilmeldingfornavn").value;
+        innFornavn = document.getElementById("forNavn").value;
         fornavnfylt = true;
         document.getElementById("feilmeldingfornavn").innerHTML = "";
     }
@@ -73,13 +73,13 @@ function valederingavFelt() {
         document.getElementById("feilmeldingtelefonnr").innerHTML = "";
     }
 
-    if (innepost === '' || !document.getElementById("email").value.match(/^[A-Za-z._\-0-9]*[@][A-Za-z]*[.][a-z]{2,4}$/)) {
+    if (innepost === '' || !document.getElementById("epost").value.match(/^[A-Za-z._\-0-9]*[@][A-Za-z]*[.][a-z]{2,4}$/)) {
         document.getElementById("feilmeldingemail").innerHTML = "<span style='color: red'>" + 'Skriv inn email' + "</span>";
         innepost = "";
-        document.getElementById("email").value = "";
+        document.getElementById("epost").value = "";
 
     } else {
-        innepost = document.getElementById("email").value;
+        innepost = document.getElementById("epost").value;
         epostfylt = true;
         document.getElementById("feilmeldingemail").innerHTML = "";
     }
@@ -97,7 +97,7 @@ function kjopBillett() {
             forNavn: innFornavn,
             etterNavn: innEtternavn,
             telefonNr: innTelefonnr,
-            email: innepost
+            epost: innepost
         }
         $.post("/lagre", kjoptBiletter, function () {
             getAll();
@@ -107,7 +107,7 @@ function kjopBillett() {
         document.getElementById("forNavn").value = "";
         document.getElementById("etterNavn").value = "";
         document.getElementById("telefonNr").value = "";
-        document.getElementById("email").value = "";
+        document.getElementById("epost").value = "";
 
         filmvalgt = false;
         biletterkjopt = false;
@@ -132,7 +132,7 @@ function printBillette(tickets) {
     for (let i=0; i<tickets.length; i++){
         out += "<tr>";
         out += "<td class='padding p-3'>"+tickets[i].film+"</td><td class='padding p-3'>"+tickets[i].antall+"</td><td class='padding p-3'>"+tickets[i].forNavn+"</td>" +
-            "<td class='padding p-3'>"+tickets[i].etterNavn+"</td><td class='padding p-3'>"+tickets[i].telefonNr+"</td><td class='padding p-3'>"+tickets[i].email+"</td>";
+            "<td class='padding p-3'>"+tickets[i].etterNavn+"</td><td class='padding p-3'>"+tickets[i].telefonNr+"</td><td class='padding p-3'>"+tickets[i].epost+"</td>";
         out += "</tr>";
     }
     document.getElementById("ordreListe").innerHTML = out;
